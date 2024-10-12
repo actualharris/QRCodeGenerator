@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css"> 
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="text-section">
+            <h1 class="title" id="main-title">QR CODE GENERATOR</h1>
+            <% if (locals.userInput) { %>
+                <h1 class="title"> Here is your QR Code for "<i><%= userInput%></i>" </h1>
+              <% } else { %>
+                <h1 class="title">Enter your desired text in the box to generate a QR code</h1>
+              <% } %>
+
+            <form id="qrForm" action="/submit" method="POST">
+                <input type="text" name="userInput" id="textArea" placeholder="Type anything!">
+                <button type="submit" class="btn" id ="generateBtn">Generate</button>
+                <button type="reset" class="btn" id="resetBtn">Reset</button>
+            </form>
+            
+        </div>
+        <div class="image-section" id="image-div">
+            <% if (locals.qrImagePath) { %>
+                <img src="<%= qrImagePath %>" alt="QR Code">
+              <% } else { %>
+                <img src="/images/png_skiing.png" alt="Default Image">
+              <% } %>
+        </div>
+    </div>
+
+    <script src="scripts/frontend.js"></script>
+    
+  </script>
+</body>
+</html>
