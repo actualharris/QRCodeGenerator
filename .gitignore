@@ -22,13 +22,14 @@ node_modules/
 creds.js
 
 # Private Files
-# *.json
+*.json
 *.csv
 *.csv.gz
 *.tsv
 *.tsv.gz
 *.xlsx
 
+!package.json
 
 # Mac/OSX
 .DS_Store
